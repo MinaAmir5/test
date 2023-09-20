@@ -14,9 +14,9 @@ void f_div(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 		if (Local_Stack_Queue->n == 0)
 		{
 			fprintf(stderr, "L%d: division by zero\n", Copy_U32_Counter);
-			fclose(bus.file);
-			free(bus.content);
 			free_stack(*Copy_Stack_Head);
+			free(bus.content);
+			fclose(bus.file);
 			exit(EXIT_FAILURE);
 		}
 		Local_Stack_Queue->next->n = Local_Stack_Queue->next->n /
@@ -27,9 +27,9 @@ void f_div(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 	else
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", Copy_U32_Counter);
-		fclose(bus.file);
-		free(bus.content);
 		free_stack(*Copy_Stack_Head);
+		free(bus.content);
+		fclose(bus.file);
 		exit(EXIT_FAILURE);
 	}
 
