@@ -44,7 +44,7 @@ void execute(char *Copy_U8_Data, stack_t **Copy_Stack,
 			fclose(file);
 			free_stack(*Copy_Stack);
 			free(Copy_U8_Data);
-			exit(EXIT_FAILURE); 
+			exit(EXIT_FAILURE);
 		}
 	}
 }
