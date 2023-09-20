@@ -8,8 +8,8 @@
 */
 void execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 {
-	char *op;
-	unsigned int i = 0;
+	char *Local_U8_OpCode;
+	unsigned char Local_U8_Counter = 0;
 	instruction_t opst[] = {
 				{"push", f_push}, {"pall", f_pall}, {"pint", f_pint},
 				{"pop", f_pop},
@@ -29,19 +29,20 @@ void execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 				{NULL, NULL}
 				};
 
-	op = strtok(content, " \n\t");
-	if (op && op[0] != '#')
+	Local_U8_OpCode = strtok(content, " \n\t");
+	if (Local_U8_OpCode && Local_U8_OpCode[0] != '#')
 	{
 		bus.arg = strtok(NULL, " \n\t");
-		for (i = 0; opst[i].opcode && op; i++)
+		for (Local_U8_Counter = 0; opst[Local_U8_Counter].opcode &&
+			Local_U8_OpCode; Local_U8_Counter++)
 		{
-			if (strcmp(op, opst[i].opcode) == 0)
-			{	opst[i].f(stack, counter);
+			if (strcmp(Local_U8_OpCode, opst[Local_U8_Counter].opcode) == 0)
+			{	opst[Local_U8_Counter].f(stack, counter);
 				break;
 			}
 		}
-		if (opst[i].opcode == NULL)
-		{ fprintf(stderr, "L%d: unknown instruction %s\n", counter, op);
+		if (opst[Local_U8_Counter].opcode == NULL)
+		{ fprintf(stderr, "L%d: unknown instruction %s\n", counter, Local_U8_OpCode);
 			fclose(file);
 			free_stack(*stack);
 			free(content);
