@@ -31,14 +31,13 @@ int main(int Copy_U32_ArgNo, char *Copy_U32_Env[])
 	read_line = getline(&content, &size, file);
 	bus.content = content;
 	counter++;
-	while (read_line > 0)
+	for (counter = 1; read_line > 0; counter++)
 	{
 		execute(content, &stack, counter, file);
 		free(content);
 		content = NULL;
 		read_line = getline(&content, &size, file);
 		bus.content = content;
-		counter++;
 	}
 	free(content);
 	free_stack(stack);
