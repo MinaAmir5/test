@@ -27,20 +27,18 @@ int main(int Copy_U32_ArgNo, char *Copy_U32_Env[])
 		fprintf(stderr, "Error: Can't open file %s\n", Copy_U32_Env[1]);
 		exit(EXIT_FAILURE);
 	}
-	content = NULL;
-	read_line = getline(&content, &size, file);
-	Global_Bus.content = content;
-	counter++;
 	while (read_line > 0)
 	{
-		execute(content, &stack, counter, file);
-		free(content);
 		content = NULL;
 		read_line = getline(&content, &size, file);
 		Global_Bus.content = content;
 		counter++;
+		if (read_line > 0)
+		{
+			execute(content, &stack, counter, file);
+		}
+		free(content);
 	}
-	free(content);
 	free_stack(stack);
 	fclose(file);
 return (0);
