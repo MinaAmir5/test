@@ -33,13 +33,12 @@ int main(int Copy_U32_ArgNo, char *Copy_U32_Env[])
 	for (Local_U32_Counter = 1; Local_Ssize_Line > 0; Local_U32_Counter++)
 	{
 		execute(Local_U8_Data, &Local_Stack, Local_U32_Counter, Local_File);
-		free(Local_U8_Data);
 		Local_U8_Data = NULL;
 		Local_Ssize_Line = getline(&Local_U8_Data, &Local_Size, Local_File);
 		bus.content = Local_U8_Data;
 	}
+	fclose(Local_File);
 	free(Local_U8_Data);
 	free_stack(Local_Stack);
-	fclose(Local_File);
 return (0);
 }
