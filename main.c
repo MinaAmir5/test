@@ -40,6 +40,7 @@ int main(int Copy_U32_ArgNo, char *Copy_U32_Env[])
 		Global_Bus.content = content;
 		counter++;
 	}
+	free(content);
 	free_stack(stack);
 	fclose(file);
 return (0);
