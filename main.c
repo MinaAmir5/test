@@ -1,5 +1,5 @@
 #include "monty.h"
-bus_t Global_Bus = {NULL, NULL, NULL, 0};
+bus_t bus = {NULL, NULL, NULL, 0};
 /**
 * main - main monty code
 * @Copy_U32_ArgNo: number of arguments
@@ -21,7 +21,7 @@ int main(int Copy_U32_ArgNo, char *Copy_U32_Env[])
 		exit(EXIT_FAILURE);
 	}
 	file = fopen(Copy_U32_Env[1], "r");
-	Global_Bus.file = file;
+	bus.file = file;
 	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", Copy_U32_Env[1]);
@@ -31,7 +31,7 @@ int main(int Copy_U32_ArgNo, char *Copy_U32_Env[])
 	{
 		content = NULL;
 		read_line = getline(&content, &size, file);
-		Global_Bus.content = content;
+		bus.content = content;
 		counter++;
 		if (read_line > 0)
 		{
