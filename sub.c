@@ -18,7 +18,7 @@ void f_sub(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 	}
 	else
 	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", v);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", Copy_U32_Counter);
 		free(bus.content);
 		free_stack(*Copy_Stack_Head);
 		fclose(bus.file);
