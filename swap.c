@@ -3,20 +3,21 @@
  * f_swap - adds the top two elements of the stack.
  * @head: stack head
  * @counter: line_number
- * Return: no return
 */
 void f_swap(stack_t **head, unsigned int counter)
 {
 	stack_t *h;
-	int len = 0, aux;
+	int aux;
 
 	h = *head;
-	while (h)
+	if (h && h->next)
 	{
-		h = h->next;
-		len++;
+		h = *head;
+		aux = h->n;
+		h->n = h->next->n;
+		h->next->n = aux;
 	}
-	if (len < 2)
+	else
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", counter);
 		fclose(bus.file);
@@ -24,8 +25,4 @@ void f_swap(stack_t **head, unsigned int counter)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	h = *head;
-	aux = h->n;
-	h->n = h->next->n;
-	h->next->n = aux;
 }
