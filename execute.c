@@ -1,17 +1,19 @@
 #include "monty.h"
 /**
 * execute - executes the opcode
-* @stack: head linked list - stack
-* @counter: line_counter
+* @Copy_Stack: head linked list - stack
+* @Copy_U32_Counter: line_counter
 * @file: poiner to monty file
-* @content: line content
+* @Copy_U8_Data: line content
 */
-void execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
+void execute(char *Copy_U8_Data, stack_t **Copy_Stack, unsigned int Copy_U32_Counter, FILE *file)
 {
 	char *Local_U8_OpCode;
 	unsigned char Local_U8_Counter = 0;
-	instruction_t opst[] = {
-				{"push", f_push}, {"pall", f_pall}, {"pint", f_pint},
+	instruction_t Local_Instruction_Command[] = {
+				{"push", f_push},
+				{"pall", f_pall},
+				{"pint", f_pint},
 				{"pop", f_pop},
 				{"swap", f_swap},
 				{"add", f_add},
@@ -29,23 +31,23 @@ void execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 				{NULL, NULL}
 				};
 
-	Local_U8_OpCode = strtok(content, " \n\t");
+	Local_U8_OpCode = strtok(Copy_U8_Data, " \n\t");
 	if (Local_U8_OpCode && Local_U8_OpCode[0] != '#')
 	{
 		bus.arg = strtok(NULL, " \n\t");
-		for (Local_U8_Counter = 0; opst[Local_U8_Counter].opcode &&
+		for (Local_U8_Counter = 0; Local_Instruction_Command[Local_U8_Counter].opcode &&
 			Local_U8_OpCode; Local_U8_Counter++)
 		{
-			if (strcmp(Local_U8_OpCode, opst[Local_U8_Counter].opcode) == 0)
-			{	opst[Local_U8_Counter].f(stack, counter);
+			if (strcmp(Local_U8_OpCode, Local_Instruction_Command[Local_U8_Counter].opcode) == 0)
+			{	Local_Instruction_Command[Local_U8_Counter].f(Copy_Stack, Copy_U32_Counter);
 				break;
 			}
 		}
-		if (opst[Local_U8_Counter].opcode == NULL)
-		{ fprintf(stderr, "L%d: unknown instruction %s\n", counter, Local_U8_OpCode);
+		if (Local_Instruction_Command[Local_U8_Counter].opcode == NULL)
+		{ fprintf(stderr, "L%d: unknown instruction %s\n", Copy_U32_Counter, Local_U8_OpCode);
 			fclose(file);
-			free_stack(*stack);
-			free(content);
+			free_stack(*Copy_Stack);
+			free(Copy_U8_Data);
 			exit(EXIT_FAILURE); }
 	}
 }
