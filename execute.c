@@ -30,22 +30,22 @@ void execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 	char *op;
 
 	op = strtok(content, " \n\t");
-	if (op && op[0] == '#')
-		return;
-	bus.arg = strtok(NULL, " \n\t");
-	while (opst[i].opcode && op)
+	if (!op && !op[0] == '#')
 	{
-		if (strcmp(op, opst[i].opcode) == 0)
-		{	opst[i].f(stack, counter);
-			return;
+		bus.arg = strtok(NULL, " \n\t");
+		while (opst[i].opcode && op)
+		{
+			if (strcmp(op, opst[i].opcode) == 0)
+			{	opst[i].f(stack, counter);
+				break;
+			}
+			i++;
 		}
-		i++;
+		if (op && opst[i].opcode == NULL)
+		{ fprintf(stderr, "L%d: unknown instruction %s\n", counter, op);
+			fclose(file);
+			free(content);
+			free_stack(*stack);
+			exit(EXIT_FAILURE); }
 	}
-	if (op && opst[i].opcode == NULL)
-	{ fprintf(stderr, "L%d: unknown instruction %s\n", counter, op);
-		fclose(file);
-		free(content);
-		free_stack(*stack);
-		exit(EXIT_FAILURE); }
-	return;
 }
