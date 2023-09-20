@@ -14,7 +14,7 @@ void f_mul(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 		Local_Stack_Queue->next->n = Local_Stack_Queue->next->n *
 			Local_Stack_Queue->n;
 		*Copy_Stack_Head = Local_Stack_Queue->next;
-		free(h);
+		free(Local_Stack_Queue);
 	}
 	else
 	{
