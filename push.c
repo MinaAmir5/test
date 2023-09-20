@@ -6,8 +6,7 @@
 */
 void f_push(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
-	int Local_U32_Data;
-	char Local_U32_Counter = 0;
+	int Local_U32_Data, Local_U32_Counter = 0;
 
 	if (bus.arg)
 	{
