@@ -2,7 +2,7 @@
 /**
  * f_push - push to the stack
  * @Copy_Stack_Head: stack head
- * @counter: line number
+ * @Copy_U32_Counter: line number
 */
 void f_push(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
