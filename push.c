@@ -1,42 +1,41 @@
 #include "monty.h"
 /**
- * f_push - add node to the stack
- * @head: stack head
- * @counter: line_number
- * Return: no return
+ * f_push - push to the stack
+ * @Copy_Stack_Head: stack head
+ * @counter: line number
 */
-void f_push(stack_t **head, unsigned int counter)
+void f_push(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
-	int n, j = 0;
+	int Local_U32_Data, Local_U32_Counter = 0;
 
 	if (bus.arg)
 	{
 		if (bus.arg[0] == '-')
-			j++;
-		while (bus.arg[j] != '\0')
+			Local_U32_Counter++;
+		while (bus.arg[Local_U32_Counter] != '\0')
 		{
-			if (bus.arg[j] > 57 || bus.arg[j] < 48)
+			if (bus.arg[Local_U32_Counter] > 57 || bus.arg[Local_U32_Counter] < 48)
 			{
-				fprintf(stderr, "L%d: usage: push integer\n", counter);
-				free_stack(*head);
+				fprintf(stderr, "L%d: usage: push integer\n", Copy_U32_Counter);
+				free_stack(*Copy_Stack_Head);
 				free(bus.content);
 				fclose(bus.file);
 				exit(EXIT_FAILURE);
 			}
-			j++;
+			Local_U32_Counter++;
 		}
 	}
 	else
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", counter);
-		fclose(bus.file);
+		fprintf(stderr, "L%d: usage: push integer\n", Copy_U32_Counter);
+		free_stack(*Copy_Stack_Head);
 		free(bus.content);
-		free_stack(*head);
+		fclose(bus.file);
 		exit(EXIT_FAILURE);
 	}
-	n = atoi(bus.arg);
+	Local_U32_Data = atoi(bus.arg);
 	if (bus.lifi == 0)
-		addnode(head, n);
+		addnode(Copy_Stack_Head, Local_U32_Data);
 	else
-		addqueue(head, n);
+		addqueue(Copy_Stack_Head, Local_U32_Data);
 }
