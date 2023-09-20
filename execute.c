@@ -1,9 +1,9 @@
 #include "monty.h"
 /**
 * execute - executes the opcode
-* @Copy_Stack: head linked list - stack
-* @Copy_U32_Counter: line_counter
-* @file: poiner to monty file
+* @Copy_Stack: linked liest to the stack
+* @Copy_U32_Counter: line counter
+* @file: monty file
 * @Copy_U8_Data: line content
 */
 void execute(char *Copy_U8_Data, stack_t **Copy_Stack,
@@ -27,6 +27,15 @@ void execute(char *Copy_U8_Data, stack_t **Copy_Stack,
 	if (Local_U8_OpCode && Local_U8_OpCode[0] != '#')
 	{
 		bus.arg = strtok(NULL, " \n\t");
+		if (Local_Instruction_Command[Local_U8_Counter].opcode == NULL)
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", Copy_U32_Counter,
+			Local_U8_OpCode);
+			fclose(file);
+			free_stack(*Copy_Stack);
+			free(Copy_U8_Data);
+			exit(EXIT_FAILURE); 
+		}
 		for (Local_U8_Counter = 0; Local_Instruction_Command[Local_U8_Counter].opcode
 			&& Local_U8_OpCode; Local_U8_Counter++)
 		{
@@ -37,12 +46,5 @@ void execute(char *Copy_U8_Data, stack_t **Copy_Stack,
 				break;
 			}
 		}
-		if (Local_Instruction_Command[Local_U8_Counter].opcode == NULL)
-		{ fprintf(stderr, "L%d: unknown instruction %s\n", Copy_U32_Counter,
-			Local_U8_OpCode);
-			fclose(file);
-			free_stack(*Copy_Stack);
-			free(Copy_U8_Data);
-			exit(EXIT_FAILURE); }
 	}
 }
