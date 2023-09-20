@@ -8,7 +8,15 @@ void f_push(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
 	int Local_U32_Data, Local_U32_Counter = 0;
 
-	if (bus.arg)
+	if (!bus.arg)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", Copy_U32_Counter);
+		free_stack(*Copy_Stack_Head);
+		free(bus.content);
+		fclose(bus.file);
+		exit(EXIT_FAILURE);
+	}
+	else
 	{
 		if (bus.arg[0] == '-')
 			Local_U32_Counter++;
@@ -25,14 +33,7 @@ void f_push(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 			Local_U32_Counter++;
 		}
 	}
-	else
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", Copy_U32_Counter);
-		free_stack(*Copy_Stack_Head);
-		free(bus.content);
-		fclose(bus.file);
-		exit(EXIT_FAILURE);
-	}
+
 	Local_U32_Data = atoi(bus.arg);
 	if (bus.lifi == 0)
 		addnode(Copy_Stack_Head, Local_U32_Data);
