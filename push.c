@@ -18,9 +18,9 @@ void f_push(stack_t **head, unsigned int counter)
 			if (bus.arg[j] > 57 || bus.arg[j] < 48)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", counter);
-				fclose(bus.file);
-				free(bus.content);
 				free_stack(*head);
+				free(bus.content);
+				fclose(bus.file);
 				exit(EXIT_FAILURE);
 			}
 			j++;
