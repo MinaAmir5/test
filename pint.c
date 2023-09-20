@@ -6,7 +6,7 @@
 */
 void f_pint(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
-	if (!Copy_Stack_Head)
+	if (*Copy_Stack_Head == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", Copy_U32_Counter);
 		free(bus.content);
