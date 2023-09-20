@@ -12,10 +12,9 @@ void f_swap(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 	Local_Stack_Queue = *Copy_Stack_Head;
 	if (Local_Stack_Queue && Local_Stack_Queue->next)
 	{
-		Local_Stack_Queue = *Copy_Stack_Head;
-		Local_U32_Container = Local_Stack_Queue->n;
-		Local_Stack_Queue->n = Local_Stack_Queue->next->n;
-		Local_Stack_Queue->next->n = Local_U32_Container;
+		Local_U32_Container = Local_Stack_Queue->next->n;
+		Local_Stack_Queue->next->n = Local_Stack_Queue->n;
+		Local_Stack_Queue->n = Local_U32_Container;
 	}
 	else
 	{
