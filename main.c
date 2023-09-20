@@ -10,10 +10,10 @@ int main(int Copy_U32_ArgNo, char *Copy_U32_Env[])
 {
 	unsigned int Local_U32_Counter = 0;
 	FILE *Local_File;
-	stack_t *stack = NULL;
-	char *content;
-	size_t size = 0;
-	ssize_t read_line = 1;
+	stack_t *Local_Stack = NULL;
+	char *Local_U8_Data;
+	size_t Local_Size = 0;
+	ssize_t Local_Ssize_Line = 1;
 
 	if (Copy_U32_ArgNo != 2)
 	{
@@ -27,20 +27,19 @@ int main(int Copy_U32_ArgNo, char *Copy_U32_Env[])
 		fprintf(stderr, "Error: Can't open file %s\n", Copy_U32_Env[1]);
 		exit(EXIT_FAILURE);
 	}
-	content = NULL;
-	read_line = getline(&content, &size, Local_File);
-	bus.content = content;
-	Local_U32_Counter++;
-	for (Local_U32_Counter = 1; read_line > 0; Local_U32_Counter++)
+	Local_U8_Data = NULL;
+	Local_Ssize_Line = getline(&Local_U8_Data, &Local_Size, Local_File);
+	bus.content = Local_U8_Data;
+	for (Local_U32_Counter = 1; Local_Ssize_Line > 0; Local_U32_Counter++)
 	{
-		execute(content, &stack, Local_U32_Counter, Local_File);
-		free(content);
-		content = NULL;
-		read_line = getline(&content, &size, Local_File);
-		bus.content = content;
+		execute(Local_U8_Data, &Local_Stack, Local_U32_Counter, Local_File);
+		free(Local_U8_Data);
+		Local_U8_Data = NULL;
+		Local_Ssize_Line = getline(&Local_U8_Data, &Local_Size, Local_File);
+		bus.content = Local_U8_Data;
 	}
-	free(content);
-	free_stack(stack);
+	free(Local_U8_Data);
+	free_stack(Local_Stack);
 	fclose(Local_File);
 return (0);
 }
