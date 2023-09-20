@@ -1,12 +1,12 @@
 #include "monty.h"
-bus_t bus = {NULL, NULL, NULL, 0};
+bus_t Global_Bus = {NULL, NULL, NULL, 0};
 /**
-* main - monty code interpreter
-* @argc: number of arguments
-* @argv: monty file location
-* Return: 0 on success
+* main - main monty code
+* @Copy_U32_ArgNo: number of arguments
+* @Copy_U32_Env: current environemnt
+* Return: 0 if success
 */
-int main(int argc, char *argv[])
+int main(int Copy_U32_ArgNo, char *Copy_U32_Env[])
 {
 	char *content;
 	FILE *file;
@@ -15,29 +15,30 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 	unsigned int counter = 0;
 
-	if (argc != 2)
+	if (Copy_U32_ArgNo != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	file = fopen(argv[1], "r");
-	bus.file = file;
+	file = fopen(Copy_U32_Env[1], "r");
+	Global_Bus.file = file;
 	if (!file)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", Copy_U32_Env[1]);
 		exit(EXIT_FAILURE);
 	}
+	content = NULL;
+	read_line = getline(&content, &size, file);
+	Global_Bus.content = content;
+	counter++;
 	while (read_line > 0)
 	{
+		execute(content, &stack, counter, file);
+		free(content);
 		content = NULL;
 		read_line = getline(&content, &size, file);
-		bus.content = content;
+		Global_Bus.content = content;
 		counter++;
-		if (read_line > 0)
-		{
-			execute(content, &stack, counter, file);
-		}
-		free(content);
 	}
 	free_stack(stack);
 	fclose(file);
