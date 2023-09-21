@@ -2,12 +2,12 @@
 /**
   *f_rotr- rotates the stack to the bottom
   *@Copy_Stack_Head: stack head
-  *@counter: line number
+  *@Copy_U32_Counter: line number
  */
-void f_rotr(stack_t **Copy_Stack_Head, __attribute__((unused)) unsigned int
-	Copy_U32_Counter)
+void f_rotr(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
 	stack_t *Local_Stack_Copy;
+	(void)Copy_U32_Counter;
 
 	Local_Stack_Copy = *Copy_Stack_Head;
 	if (Local_Stack_Copy && Local_Stack_Copy->next)
