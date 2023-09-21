@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
-  *f_rotr- rotates the stack to the bottom
+  *Void_Rotr- rotates the stack to the bottom
   *@Copy_Stack_Head: stack head
   *@Copy_U32_Counter: line number
  */
-void f_rotr(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
+void Void_Rotr(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
 	stack_t *Local_Stack_Copy;
 	(void)Copy_U32_Counter;
