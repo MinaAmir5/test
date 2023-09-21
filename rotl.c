@@ -6,17 +6,16 @@
  */
 void f_rotl(stack_t **head, unsigned int counter)
 {
-	stack_t *tmp = *head, *aux;
+	stack_t *tmp, *aux;
 	(void)counter;
 
+	tmp = *head;
 	if (tmp && tmp->next)
 	{
+		while (tmp->next)
+			tmp = tmp->next;
 		aux = (*head)->next;
 		aux->prev = NULL;
-		while (tmp->next != NULL)
-		{
-			tmp = tmp->next;
-		}
 		tmp->next = *head;
 		(*head)->next = NULL;
 		(*head)->prev = tmp;
