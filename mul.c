@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
- * f_mul - multiplies the top two elements of the stack.
+ * Void_Mul - multiplies the top two elements of the stack.
  * @Copy_Stack_Head: stack head
  * @Copy_U32_Counter: line number
 */
-void f_mul(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
+void Void_Mul(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
 	stack_t *Local_Stack_Queue;
 
@@ -19,9 +19,9 @@ void f_mul(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 	else
 	{
 		fprintf(stderr, "L%d: can't mul, stack too short\n", Copy_U32_Counter);
-		free_stack(*Copy_Stack_Head);
-		free(bus.content);
-		fclose(bus.file);
+		Void_FreeStack(*Copy_Stack_Head);
+		free(Global_Par.Global_U8_Value);
+		fclose(Global_Par.Global_File);
 		exit(EXIT_FAILURE);
 	}
 }
