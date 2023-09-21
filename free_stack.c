@@ -3,14 +3,14 @@
 * free_stack - frees the stack
 * @head: head of the stack
 */
-void free_stack(stack_t *head)
+void free_stack(stack_t *Copy_Stack_Head)
 {
-	stack_t *aux;
+	stack_t *Local_Stack_Temp;
 
-	while (head)
+	while (Copy_Stack_Head)
 	{
-		aux = head->next;
-		free(head);
-		head = aux;
+		Local_Stack_Temp = Copy_Stack_Head->next;
+		free(Copy_Stack_Head);
+		Copy_Stack_Head = Local_Stack_Temp;
 	}
 }
