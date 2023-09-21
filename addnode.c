@@ -4,7 +4,7 @@
  * @Copy_Stack_Head: stack  head
  * @Copy_U32_Value: new value
 */
-void addnode(stack_t **Copy_Stack_Head, int Copy_U32_Value)
+void Void_AddStack(stack_t **Copy_Stack_Head, int Copy_U32_Value)
 {
 
 	stack_t *Local_Stack_NewNode, *Local_Stack_Head;
