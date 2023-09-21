@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
- * f_pstr - prints the string starting from the top of the stack
+ * Void_Pstr - prints the string starting from the top of the stack
  * @Copy_Stack_Head: stack head
  * @Copy_U32_Counter: not used
 */
-void f_pstr(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
+void Void_Pstr(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
 	stack_t *Local_Stack_Queue;
 	(void)Copy_U32_Counter;
