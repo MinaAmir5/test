@@ -1,25 +1,25 @@
 #include "monty.h"
 /**
- * addnode - add node to the head stack
- * @head: head of the stack
- * @n: new_value
+ * addnode - add node to the stack
+ * @Copy_Stack_Head: stack  head
+ * @Copy_U32_Value: new value
 */
-void addnode(stack_t **head, int n)
+void addnode(stack_t **Copy_Stack_Head, int Copy_U32_Value)
 {
 
-	stack_t *new_node, *aux;
+	stack_t *Local_Stack_NewNode, *Local_Stack_Head;
 
-	new_node = malloc(sizeof(stack_t));
-	if (new_node == NULL)
+	Local_Stack_NewNode = malloc(sizeof(stack_t));
+	if (Local_Stack_NewNode == NULL)
 	{
 		printf("Error\n");
 		exit(0);
 	}
-	aux = *head;
-	if (aux)
-		aux->prev = new_node;
-	new_node->prev = NULL;
-	new_node->n = n;
-	new_node->next = *head;
-	*head = new_node;
+	Local_Stack_Head = *Copy_Stack_Head;
+	if (Local_Stack_Head)
+		Local_Stack_Head->prev = Local_Stack_NewNode;
+	Local_Stack_NewNode->prev = NULL;
+	Local_Stack_NewNode->n = Copy_U32_Value;
+	Local_Stack_NewNode->next = *Copy_Stack_Head;
+	*Copy_Stack_Head = Local_Stack_NewNode;
 }
