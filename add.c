@@ -4,7 +4,7 @@
  * @Copy_Stack_Head: stack head
  * @Copy_U32_Counter: line number
 */
-void f_add(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
+void Void_Add(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
 	stack_t *Local_Stack_Queue;
 
@@ -20,7 +20,7 @@ void f_add(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", Copy_U32_Counter);
 		free(Global_Par.content);
-		free_stack(*Copy_Stack_Head);
+		Void_FreeStack(*Copy_Stack_Head);
 		fclose(Global_Par.file);
 		exit(EXIT_FAILURE);
 	}
