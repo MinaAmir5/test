@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
- * f_pall - prints the stack
+ * Void_Pall - prints the stack
  * @Copy_Stack_Head: stack head
  * @Copy_U32_Counter: not used
 */
-void f_pall(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
+void Void_Pall(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
 	stack_t *Local_Stack_Queue;
 	(void)Copy_U32_Counter;
