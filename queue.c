@@ -1,22 +1,22 @@
 #include "monty.h"
 /**
- * f_queue - select LIFI
+ * Void_Queue - select LIFI
  * @Copy_Stack_Head: stack head
  * @Copy_U32_Counter: line number
 */
-void f_queue(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
+void Void_Queue(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
 	(void)Copy_Stack_Head;
 	(void)Copy_U32_Counter;
-	bus.lifi = 1;
+	Global_Par.Global_U32_Queue = 1;
 }
 
 /**
- * addqueue - add node to the stack tail
+ * Void_AddQueue - add node to the stack tail
  * @Copy_U32_Value: new value
  * @Copy_Stack_Head: stack head
 */
-void addqueue(stack_t **Copy_Stack_Head, int Copy_U32_Value)
+void Void_AddQueue(stack_t **Copy_Stack_Head, int Copy_U32_Value)
 {
 	stack_t *Local_Stack_NewNode, *Local_Stack_Tail;
 
