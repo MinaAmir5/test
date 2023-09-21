@@ -1,41 +1,35 @@
 #include "monty.h"
 /**
- * f_mod - computes the rest of the division of the second
- * top element of the stack by the top element of the stack
- * @head: stack head
- * @counter: line_number
- * Return: no return
+ * f_mod - computes the reminder of the division
+ * @Copy_Stack_Head: stack head
+ * @Copy_U32_Counter: line number
 */
-void f_mod(stack_t **head, unsigned int counter)
+void f_mod(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
-	stack_t *h;
-	int len = 0, aux;
+	stack_t *Local_Stack_Queue;
 
-	h = *head;
-	while (h)
+	Local_Stack_Queue = *Copy_Stack_Head;
+	if (Local_Stack_Queue && Local_Stack_Queue->next)
 	{
-		h = h->next;
-		len++;
+		if (Local_Stack_Queue->n == 0)
+		{
+			fprintf(stderr, "L%d: division by zero\n", Copy_U32_Counter);
+			free_stack(*Copy_Stack_Head);
+			free(bus.content);
+			fclose(bus.file);
+			exit(EXIT_FAILURE);
+		}
+		Local_Stack_Queue->next->n = Local_Stack_Queue->next->n %
+			Local_Stack_Queue->n;
+		*Copy_Stack_Head = Local_Stack_Queue->next;
+		free(Local_Stack_Queue);
 	}
-	if (len < 2)
+	else
 	{
-		fprintf(stderr, "L%d: can't mod, stack too short\n", counter);
-		fclose(bus.file);
+		fprintf(stderr, "L%d: can't mod, stack too short\n", Copy_U32_Counter);
+		free_stack(*Copy_Stack_Head);
 		free(bus.content);
-		free_stack(*head);
+		fclose(bus.file);
 		exit(EXIT_FAILURE);
 	}
-	h = *head;
-	if (h->n == 0)
-	{
-		fprintf(stderr, "L%d: division by zero\n", counter);
-		fclose(bus.file);
-		free(bus.content);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
-	}
-	aux = h->next->n % h->n;
-	h->next->n = aux;
-	*head = h->next;
-	free(h);
 }
