@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
- * f_sub- sustrat the top two elements
+ * Void_Sub- sustrat the top two elements
  * @Copy_Stack_Head: stack head
  * @Copy_U32_Counter: line number
 */
-void f_sub(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
+void Void_Sub(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
 	stack_t *Local_Stack_Queue;
 
@@ -19,9 +19,9 @@ void f_sub(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 	else
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", Copy_U32_Counter);
-		free(bus.content);
-		free_stack(*Copy_Stack_Head);
-		fclose(bus.file);
+		free(Global_Par.Global_U8_Value);
+		Void_FreeStack(*Copy_Stack_Head);
+		fclose(Global_Par.Global_File);
 		exit(EXIT_FAILURE);
 	}
 }
