@@ -27,7 +27,7 @@ void Void_Mod(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 	else
 	{
 		fprintf(stderr, "L%d: can't mod, stack too short\n", Copy_U32_Counter);
-		free_stack(*Copy_Stack_Head);
+		Void_FreeStack(*Copy_Stack_Head);
 		free(Global_Par.Global_U8_Value);
 		fclose(Global_Par.Global_File);
 		exit(EXIT_FAILURE);
