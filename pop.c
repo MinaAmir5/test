@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
- * f_pop - pop from stack
+ * Void_Pop - pop from stack
  * @Copy_Stack_Head: stack head
  * @Copy_U32_Counter: line number
 */
-void f_pop(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
+void Void_Pop(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
 	stack_t *Local_Stack_Queue;
 
@@ -17,9 +17,9 @@ void f_pop(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 	else
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", Copy_U32_Counter);
-		free(bus.content);
-		free_stack(*Copy_Stack_Head);
-		fclose(bus.file);
+		free(Global_Par.Global_U8_Value);
+		Void_FreeStack(*Copy_Stack_Head);
+		fclose(Global_Par.Global_File);
 		exit(EXIT_FAILURE);
 	}
 }
