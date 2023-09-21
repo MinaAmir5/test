@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * f_add - adds the top two elements of the stack.
+ * Void_Add - adds the top two elements of the stack.
  * @Copy_Stack_Head: stack head
  * @Copy_U32_Counter: line number
 */
