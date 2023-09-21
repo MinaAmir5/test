@@ -1,5 +1,5 @@
 #include "monty.h"
-bus_t bus = {NULL, NULL, NULL, 0};
+Global_Struct_Par Global_Par = {NULL, NULL, NULL, 0};
 /**
 * main - main monty code
 * @Copy_U32_ArgNo: number of arguments
@@ -21,7 +21,7 @@ int main(int Copy_U32_ArgNo, char *Copy_U32_Env[])
 		exit(EXIT_FAILURE);
 	}
 	Local_File = fopen(Copy_U32_Env[1], "r");
-	bus.file = Local_File;
+	Global_Par.Global_File = Local_File;
 	if (!Local_File)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", Copy_U32_Env[1]);
@@ -29,17 +29,17 @@ int main(int Copy_U32_ArgNo, char *Copy_U32_Env[])
 	}
 	Local_U8_Data = NULL;
 	Local_Ssize_Line = getline(&Local_U8_Data, &Local_Size, Local_File);
-	bus.content = Local_U8_Data;
+	Global_Par.Global_U8_Value = Local_U8_Data;
 	for (Local_U32_Counter = 1; Local_Ssize_Line > 0; Local_U32_Counter++)
 	{
 		execute(Local_U8_Data, &Local_Stack, Local_U32_Counter, Local_File);
 		free(Local_U8_Data);
 		Local_U8_Data = NULL;
 		Local_Ssize_Line = getline(&Local_U8_Data, &Local_Size, Local_File);
-		bus.content = Local_U8_Data;
+		Global_Par.Global_U8_Value = Local_U8_Data;
 	}
 	fclose(Local_File);
 	free(Local_U8_Data);
-	free_stack(Local_Stack);
+	Void_FreeStack(Local_Stack);
 return (0);
 }
