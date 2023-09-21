@@ -1,24 +1,24 @@
 #include "monty.h"
 /**
   *f_rotl- rotates the stack to the top
-  *@head: stack head
-  *@counter: line_number
+  *@Copy_Stack_Head: stack head
+  *@Copy_U32_Counter: line number
  */
-void f_rotl(stack_t **head, unsigned int counter)
+void f_rotl(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
-	stack_t *tmp, *aux;
-	(void)counter;
+	stack_t *Local_Stack_Temp, *Local_Stack_Copy;
+	(void)Copy_U32_Counter;
 
-	tmp = *head;
-	if (tmp && tmp->next)
+	Local_Stack_Temp = *Copy_Stack_Head;
+	if (Local_Stack_Temp && Local_Stack_Temp->next)
 	{
-		while (tmp->next)
-			tmp = tmp->next;
-		(*head)->next->prev = NULL;
-		tmp->next = *head;
-		aux = (*head)->next;
-		(*head)->prev = tmp;
-		(*head)->next = NULL;
-		(*head) = aux;
+		while (Local_Stack_Temp->next)
+			Local_Stack_Temp = Local_Stack_Temp->next;
+		(*Copy_Stack_Head)->next->prev = NULL;
+		Local_Stack_Temp->next = *Copy_Stack_Head;
+		Local_Stack_Copy = (*Copy_Stack_Head)->next;
+		(*Copy_Stack_Head)->prev = Local_Stack_Temp;
+		(*Copy_Stack_Head)->next = NULL;
+		(*Copy_Stack_Head) = Local_Stack_Copy;
 	}
 }
