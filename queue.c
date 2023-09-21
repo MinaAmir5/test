@@ -12,30 +12,30 @@ void f_queue(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 }
 
 /**
- * addqueue - add node to the tail stack
- * @n: new value
- * @head: head of the stack
+ * addqueue - add node to the stack tail
+ * @Copy_U32_Value: new value
+ * @Copy_Stack_Head: stack head
 */
-void addqueue(stack_t **head, int n)
+void addqueue(stack_t **Copy_Stack_Head, int Copy_U32_Value)
 {
-	stack_t *new_node, *aux;
+	stack_t *Local_Stack_NewNode, *Local_Stack_Tail;
 
-	new_node = malloc(sizeof(stack_t));
-	if (new_node == NULL)
+	Local_Stack_NewNode = malloc(sizeof(stack_t));
+	if (Local_Stack_NewNode == NULL)
 		printf("Error\n");
-	aux = *head;
-	while ((*head) && aux->next)
-		aux = aux->next;
-	new_node->next = NULL;
-	new_node->n = n;
-	if (!aux)
+	Local_Stack_Tail = *Copy_Stack_Head;
+	while ((*Copy_Stack_Head) && Local_Stack_Tail->next)
+		Local_Stack_Tail = Local_Stack_Tail->next;
+	Local_Stack_NewNode->next = NULL;
+	Local_Stack_NewNode->n = Copy_U32_Value;
+	if (!Local_Stack_Tail)
 	{
-		new_node->prev = NULL;
-		*head = new_node;
+		Local_Stack_NewNode->prev = NULL;
+		*Copy_Stack_Head = Local_Stack_NewNode;
 	}
 	else
 	{
-		new_node->prev = aux;
-		aux->next = new_node;
+		Local_Stack_NewNode->prev = Local_Stack_Tail;
+		Local_Stack_Tail->next = Local_Stack_NewNode;
 	}
 }
