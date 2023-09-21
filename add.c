@@ -19,9 +19,9 @@ void f_add(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 	else
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", Copy_U32_Counter);
-		free(bus.content);
+		free(Global_Par.content);
 		free_stack(*Copy_Stack_Head);
-		fclose(bus.file);
+		fclose(Global_Par.file);
 		exit(EXIT_FAILURE);
 	}
 }
