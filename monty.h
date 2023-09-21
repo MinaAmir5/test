@@ -23,22 +23,6 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 /**
- * struct Global_Struct_Par - parameters of stack
- * @arg: value
- * @file: pointer to monty file
- * @content: line content
- * @lifi: flag change stack <-> queue
- * Description: deines the parameters of the stack
- */
-typedef struct Global_Struct_Par
-{
-	char *arg;
-	FILE *file;
-	char *content;
-	int lifi;
-}  Global_Struct_Par;
-extern Global_Struct_Par Global_Par;
-/**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
  * @f: function to handle the opcode
@@ -51,28 +35,44 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/**
+ * struct Global_Struct_Par - parameters of stack
+ * @arg: value
+ * @file: pointer to monty file
+ * @content: line content
+ * @lifi: flag change stack <-> queue
+ * Description: deines the parameters of the stack
+ */
+typedef struct Global_Struct_Par
+{
+	char *Global_U8_Par;
+	FILE *Global_File;
+	char *Global_U8_Value;
+	int Global_U32_Queue;
+}  Global_Struct_Par;
+extern Global_Struct_Par Global_Par;
 char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getstdin(char **lineptr, int file);
+void Void_Sub(stack_t **head, unsigned int counter);
+void Void_Mod(stack_t **head, unsigned int counter);
+void Void_AddStack(stack_t **head, int n);
 char  *clean_line(char *content);
-void f_push(stack_t **head, unsigned int number);
-void f_pall(stack_t **head, unsigned int number);
-void f_pint(stack_t **head, unsigned int number);
-void execute(char *content, stack_t **head, unsigned int counter, FILE *file);
-void free_stack(stack_t *head);
-void f_pop(stack_t **head, unsigned int counter);
-void f_swap(stack_t **head, unsigned int counter);
-void f_add(stack_t **head, unsigned int counter);
-void f_nop(stack_t **head, unsigned int counter);
-void f_sub(stack_t **head, unsigned int counter);
-void f_div(stack_t **head, unsigned int counter);
-void f_mul(stack_t **head, unsigned int counter);
-void f_mod(stack_t **head, unsigned int counter);
-void f_pchar(stack_t **head, unsigned int counter);
-void f_pstr(stack_t **head, unsigned int counter);
-void f_rotl(stack_t **head, unsigned int counter);
-void f_rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
-void addnode(stack_t **head, int n);
-void addqueue(stack_t **head, int n);
-void f_queue(stack_t **head, unsigned int counter);
-void f_stack(stack_t **head, unsigned int counter);
+void Void_Push(stack_t **head, unsigned int number);
+void Void_FreeStack(stack_t *head);
+void Void_Pall(stack_t **head, unsigned int number);
+void Void_Pint(stack_t **head, unsigned int number);
+void Void_Execute(char *content, stack_t **head, unsigned int counter, FILE *file);
+void Void_Pop(stack_t **head, unsigned int counter);
+void Void_Swap(stack_t **head, unsigned int counter);
+void Void_Add(stack_t **head, unsigned int counter);
+void Void_Nop(stack_t **head, unsigned int counter);
+void Void_Div(stack_t **head, unsigned int counter);
+void Void_Mul(stack_t **head, unsigned int counter);
+void Void_Pchar(stack_t **head, unsigned int counter);
+void Void_Pstr(stack_t **head, unsigned int counter);
+void Void_Rotl(stack_t **head, unsigned int counter);
+void Void_Rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
+void Void_AddQueue(stack_t **head, int n);
+void Void_Stack(stack_t **head, unsigned int counter);
+void Void_Queue(stack_t **head, unsigned int counter);
 #endif
