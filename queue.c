@@ -13,7 +13,7 @@ void f_queue(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 
 /**
  * addqueue - add node to the tail stack
- * @n: new_value
+ * @n: new value
  * @head: head of the stack
 */
 void addqueue(stack_t **head, int n)
@@ -22,22 +22,20 @@ void addqueue(stack_t **head, int n)
 
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
-	{
 		printf("Error\n");
-	}
 	aux = *head;
-	new_node->n = n;
-	new_node->next = NULL;
 	while ((*head) && aux->next)
 		aux = aux->next;
+	new_node->next = NULL;
+	new_node->n = n;
 	if (!aux)
 	{
-		*head = new_node;
 		new_node->prev = NULL;
+		*head = new_node;
 	}
 	else
 	{
-		aux->next = new_node;
 		new_node->prev = aux;
+		aux->next = new_node;
 	}
 }
