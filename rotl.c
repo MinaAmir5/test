@@ -14,7 +14,7 @@ void f_rotl(stack_t **head, unsigned int counter)
 		while (tmp->next)
 			tmp = tmp->next;
 		aux = (*head)->next;
-		(*head)->next->prev = NULL
+		(*head)->next->prev = NULL;
 		tmp->next = *head;
 		(*head)->next = NULL;
 		(*head)->prev = tmp;
