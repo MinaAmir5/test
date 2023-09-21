@@ -32,7 +32,7 @@ int main(int Copy_U32_ArgNo, char *Copy_U32_Env[])
 	Global_Par.Global_U8_Value = Local_U8_Data;
 	for (Local_U32_Counter = 1; Local_Ssize_Line > 0; Local_U32_Counter++)
 	{
-		execute(Local_U8_Data, &Local_Stack, Local_U32_Counter, Local_File);
+		Void_Execute(Local_U8_Data, &Local_Stack, Local_U32_Counter, Local_File);
 		free(Local_U8_Data);
 		Local_U8_Data = NULL;
 		Local_Ssize_Line = getline(&Local_U8_Data, &Local_Size, Local_File);
