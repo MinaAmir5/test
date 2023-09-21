@@ -1,13 +1,12 @@
 #include "monty.h"
 /**
-  *f_rotr- rotates the stack to the top
+  *f_rotr- rotates the stack to the bottom
   *@Copy_Stack_Head: stack head
   *@counter: line number
  */
-void f_rotr(stack_t **Copy_Stack_Head, unsigned int counter)
+void f_rotr(stack_t **Copy_Stack_Head, __attribute__((unused)) unsigned int counter)
 {
 	stack_t *Local_Stack_Copy;
-	(void)counter;
 
 	Local_Stack_Copy = *Copy_Stack_Head;
 	if (Local_Stack_Queue && Local_Stack_Queue->next)
