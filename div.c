@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
- * f_div - divides the top two elements of the stack.
+ * Void_Div - divides the top two elements of the stack.
  * @Copy_Stack_Head: stack head
  * @Copy_U32_Counter: line number
 */
-void f_div(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
+void Void_Div(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
 	stack_t *Local_Stack_Queue;
 
@@ -14,9 +14,9 @@ void f_div(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 		if (Local_Stack_Queue->n == 0)
 		{
 			fprintf(stderr, "L%d: division by zero\n", Copy_U32_Counter);
-			free_stack(*Copy_Stack_Head);
-			free(bus.content);
-			fclose(bus.file);
+			Void_FreeStack(*Copy_Stack_Head);
+			free(Global_Par.Global_U8_Value);
+			fclose(Global_Par.Global_File);
 			exit(EXIT_FAILURE);
 		}
 		Local_Stack_Queue->next->n = Local_Stack_Queue->next->n /
@@ -28,8 +28,8 @@ void f_div(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", Copy_U32_Counter);
 		free_stack(*Copy_Stack_Head);
-		free(bus.content);
-		fclose(bus.file);
+		free(Global_Par.Global_U8_Value);
+		fclose(Global_Par.Global_File);
 		exit(EXIT_FAILURE);
 	}
 
