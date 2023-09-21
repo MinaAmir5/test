@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * addnode - add node to the stack
+ * Void_AddStack - add node to the stack
  * @Copy_Stack_Head: stack  head
  * @Copy_U32_Value: new value
 */
