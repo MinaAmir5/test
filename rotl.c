@@ -14,11 +14,11 @@ void f_rotl(stack_t **head, unsigned int counter)
 	{
 		while (tmp->next)
 			tmp = tmp->next;
-		aux = (*head)->next;
 		(*head)->next->prev = NULL;
 		tmp->next = *head;
-		(*head)->next = NULL;
+		aux = (*head)->next;
 		(*head)->prev = tmp;
+		(*head)->next = NULL;
 		(*head) = aux;
 	}
 }
