@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
- * f_swap - swaps the top two elements of the stack.
+ * Void_Swap - swaps the top two elements of the stack.
  * @Copy_Stack_Head: stack head
  * @Copy_U32_Counter: line number
 */
-void f_swap(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
+void Void_Swap(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
 	stack_t *Local_Stack_Queue;
 	int Local_U32_Container;
@@ -19,9 +19,9 @@ void f_swap(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 	else
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", Copy_U32_Counter);
-		free_stack(*Copy_Stack_Head);
-		free(bus.content);
-		fclose(bus.file);
+		Void_FreeStack(*Copy_Stack_Head);
+		free(Global_Par.Global_U8_Value);
+		fclose(Global_Par.Global_File);
 		exit(EXIT_FAILURE);
 	}
 }
