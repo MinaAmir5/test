@@ -10,7 +10,8 @@ void f_pstr(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 	(void)Copy_U32_Counter;
 
 	Local_Stack_Queue = *Copy_Stack_Head;
-	while (Local_Stack_Queue && (Local_Stack_Queue->n <= 127 && Local_Stack_Queue>n > 0))
+	while (Local_Stack_Queue && (Local_Stack_Queue->n <= 127 &&
+		Local_Stack_Queue->n > 0))
 	{
 		printf("%c", Local_Stack_Queue->n);
 		Local_Stack_Queue = Local_Stack_Queue->next;
