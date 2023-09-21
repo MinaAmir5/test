@@ -19,9 +19,9 @@ void Void_Add(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 	else
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", Copy_U32_Counter);
-		free(Global_Par.content);
+		free(Global_Par.Global_U8_Value);
 		Void_FreeStack(*Copy_Stack_Head);
-		fclose(Global_Par.file);
+		fclose(Global_Par.Global_File);
 		exit(EXIT_FAILURE);
 	}
 }
