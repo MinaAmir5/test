@@ -1,14 +1,13 @@
 #include "monty.h"
 /**
- * f_queue - prints the top
- * @head: stack head
- * @counter: line_number
- * Return: no return
+ * f_queue - select LIFI
+ * @Copy_Stack_Head: stack head
+ * @Copy_U32_Counter: line number
 */
-void f_queue(stack_t **head, unsigned int counter)
+void f_queue(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 {
-	(void)head;
-	(void)counter;
+	(void)Copy_Stack_Head;
+	(void)Copy_U32_Counter;
 	bus.lifi = 1;
 }
 
@@ -16,7 +15,6 @@ void f_queue(stack_t **head, unsigned int counter)
  * addqueue - add node to the tail stack
  * @n: new_value
  * @head: head of the stack
- * Return: no return
 */
 void addqueue(stack_t **head, int n)
 {
