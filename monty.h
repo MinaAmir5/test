@@ -71,7 +71,7 @@ void Void_Mul(stack_t **, unsigned int);
 void Void_Pchar(stack_t **, unsigned int);
 void Void_Pstr(stack_t **, unsigned int);
 void Void_Rotl(stack_t **, unsigned int);
-void Void_Rotr(stack_t **, __attribute__((unused)) unsigned int counter);
+void Void_Rotr(stack_t **, unsigned int);
 void Void_AddQueue(stack_t **, int);
 void Void_Stack(stack_t **, unsigned int);
 void Void_Queue(stack_t **, unsigned int);
