@@ -22,7 +22,7 @@ void Void_Push(stack_t **Copy_Stack_Head, unsigned int Copy_U32_Counter)
 			Local_U32_Counter++;
 		while (Global_Par.Global_U8_Par[Local_U32_Counter] != '\0')
 		{
-			if (Global_Par.Global_U8_Par[Local_U32_Counter] > 57 || 
+			if (Global_Par.Global_U8_Par[Local_U32_Counter] > 57 ||
 				Global_Par.Global_U8_Par[Local_U32_Counter] < 48)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", Copy_U32_Counter);
