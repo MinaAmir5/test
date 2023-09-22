@@ -51,7 +51,6 @@ typedef struct Global_Struct_Par
 	int Global_U32_Queue;
 }  Global_Struct_Par;
 extern Global_Struct_Par Global_Par;
-char *_realloc(char *, unsigned int, unsigned int);
 ssize_t getstdin(char **, int);
 void Void_Sub(stack_t **, unsigned int);
 void Void_Mod(stack_t **, unsigned int);
