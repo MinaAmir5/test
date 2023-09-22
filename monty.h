@@ -37,10 +37,10 @@ typedef struct instruction_s
 } instruction_t;
 /**
  * struct Global_Struct_Par - parameters of stack
- * @arg: value
- * @file: pointer to monty file
- * @content: line content
- * @lifi: flag change stack <-> queue
+ * @Global_U8_Par: value
+ * @Global_File: pointer to monty file
+ * @Global_U8_Value: line content
+ * @Global_U32_Queue: flag change stack <-> queue
  * Description: deines the parameters of the stack
  */
 typedef struct Global_Struct_Par
@@ -51,28 +51,28 @@ typedef struct Global_Struct_Par
 	int Global_U32_Queue;
 }  Global_Struct_Par;
 extern Global_Struct_Par Global_Par;
-char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
-ssize_t getstdin(char **lineptr, int file);
-void Void_Sub(stack_t **head, unsigned int counter);
-void Void_Mod(stack_t **head, unsigned int counter);
-void Void_AddStack(stack_t **head, int n);
-char  *clean_line(char *content);
-void Void_Push(stack_t **head, unsigned int number);
-void Void_FreeStack(stack_t *head);
-void Void_Pall(stack_t **head, unsigned int number);
-void Void_Pint(stack_t **head, unsigned int number);
-void Void_Execute(char *content, stack_t **head, unsigned int counter, FILE *file);
-void Void_Pop(stack_t **head, unsigned int counter);
-void Void_Swap(stack_t **head, unsigned int counter);
-void Void_Add(stack_t **head, unsigned int counter);
-void Void_Nop(stack_t **head, unsigned int counter);
-void Void_Div(stack_t **head, unsigned int counter);
-void Void_Mul(stack_t **head, unsigned int counter);
-void Void_Pchar(stack_t **head, unsigned int counter);
-void Void_Pstr(stack_t **head, unsigned int counter);
-void Void_Rotl(stack_t **head, unsigned int counter);
-void Void_Rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
-void Void_AddQueue(stack_t **head, int n);
-void Void_Stack(stack_t **head, unsigned int counter);
-void Void_Queue(stack_t **head, unsigned int counter);
+char *_realloc(char *, unsigned int, unsigned int);
+ssize_t getstdin(char **, int);
+void Void_Sub(stack_t **, unsigned int);
+void Void_Mod(stack_t **, unsigned int);
+void Void_AddStack(stack_t **, int);
+char  *clean_line(char *);
+void Void_Push(stack_t **, unsigned int);
+void Void_FreeStack(stack_t *);
+void Void_Pall(stack_t **, unsigned int);
+void Void_Pint(stack_t **, unsigned int);
+void Void_Execute(char *, stack_t **, unsigned int, FILE *);
+void Void_Pop(stack_t **, unsigned int);
+void Void_Swap(stack_t **, unsigned int);
+void Void_Add(stack_t **, unsigned int);
+void Void_Nop(stack_t **, unsigned int);
+void Void_Div(stack_t **, unsigned int);
+void Void_Mul(stack_t **, unsigned int);
+void Void_Pchar(stack_t **, unsigned int);
+void Void_Pstr(stack_t **, unsigned int);
+void Void_Rotl(stack_t **, unsigned int);
+void Void_Rotr(stack_t **, __attribute__((unused)) unsigned int counter);
+void Void_AddQueue(stack_t **, int);
+void Void_Stack(stack_t **, unsigned int);
+void Void_Queue(stack_t **, unsigned int);
 #endif
